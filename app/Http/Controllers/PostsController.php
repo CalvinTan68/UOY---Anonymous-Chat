@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\DB;
+
+class PostsController extends Controller
+{
+    public function show()
+    {
+    	$posts = DB::table('posts')->latest()->get();
+
+    	return view('posts',['posts' => $posts, 'title' => 'posts']);
+    }
+
+    public function create()
+    {
+        return view('create',['title' => 'create']);
+    }
+
+    public function store(Request $request)
+    {
+	DB::table('Posts')->insert([
+		'username' => $request->username,
+		'posts' => $request->posts,
+	]);
+	return redirect('/posts');
+
+}
+}
