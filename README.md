@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="500" src="./thumbnail.png">
+</p>
+
 ## About Project
 
 UOY is a web application where you can share anything anonymously for free and it is secure. It is built with :
