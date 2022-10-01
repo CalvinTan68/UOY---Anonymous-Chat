@@ -8,6 +8,7 @@ UOY is a web application where you can share anything anonymously for free and i
 
 - HTML
 - CSS
+- PHP
 - Bootstrap
 - Laravel
 - MySQL
