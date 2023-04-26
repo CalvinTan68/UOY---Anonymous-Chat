@@ -35,7 +35,10 @@ Hosted since September 1st 2022 on InfinityFree Web Hosting
 
 - Create .env file by using .env.example file, rename it by deleting the ".example" filename
 
-- Configure your database inside the <strong>.env</strong> file. Mainly you only need to change the <strong>DB_NAME</strong> and <strong>DB_PASSWORD</strong>
+- Configure your database inside the <strong>.env</strong> file. Mainly you only need to change the <strong>DB_NAME</strong> and <strong>DB_PASSWORD</strong>and also run
+```php
+  php artisan key:generate
+```
 
 - Run command 
 
