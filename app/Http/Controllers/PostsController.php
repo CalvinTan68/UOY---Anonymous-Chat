@@ -23,9 +23,11 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-	DB::table('Posts')->insert([
+	DB::table('posts')->insert([
 		'username' => $request->username,
 		'posts' => $request->posts,
+        'created_at' => now(),
+        'updated_at' => now()
 	]);
 	return redirect('/posts');
 
