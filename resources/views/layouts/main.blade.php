@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UOY - Anonymous Post Sharing</title>
 
     <style>
-        html
-        {
+        html {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
         }
-        body
-        {
+
+        body {
             background-color: rgb(240, 240, 240);
         }
-        .card
-        {
+
+        .card {
             background: rgba(255, 255, 255, 0);
             border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -30,19 +30,20 @@
             border: 1px solid rgba(255, 255, 255, 0.17);
             width: 40vw;
         }
-        .card input, .card textarea
-        {
+
+        .card input,
+        .card textarea {
             background: rgb(255, 255, 255, 0.4);
         }
-        @media (max-width: 768px)
-        {
-            .card
-            {
+
+        @media (max-width: 768px) {
+            .card {
                 width: 80vw;
             }
         }
     </style>
 </head>
+
 <body>
 
     @include('layouts.navbar')
@@ -51,7 +52,8 @@
         @yield('contents')
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
+
 </html>
