@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
-
     use HasFactory;
+
     protected $fillable = [
         'posts',
         'username'
-    ]
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
 }

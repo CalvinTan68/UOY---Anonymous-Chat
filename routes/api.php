@@ -3,17 +3,29 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::get('/posts', function (Request $request) {
+    $posts = \App\Models\Posts::latest()->paginate(20);
+    return response()->json($posts);
+});
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/posts', function (Request $request) {
+    $key = 'create-post:' . $request->ip();
+
+    if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($key, 5)) {
+        $seconds = \Illuminate\Support\Facades\RateLimiter::availableIn($key);
+        return response()->json([
+            'message' => "Too many posts. Please wait {$seconds} seconds before posting again."
+        ], 429);
+    }
+
+    $validated = $request->validate([
+        'username' => 'required|string|max:255|min:2',
+        'posts' => 'required|string|max:5000|min:1'
+    ]);
+
+    $post = \App\Models\Posts::create($validated);
+
+    \Illuminate\Support\Facades\RateLimiter::hit($key, 300);
+
+    return response()->json($post, 201);
 });
